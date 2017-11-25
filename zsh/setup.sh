@@ -1,1 +1,3 @@
-cp .zshrc ~/
+cp .zprofile ~/
+cd ~/
+source .zprofile
