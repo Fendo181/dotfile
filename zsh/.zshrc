@@ -1,13 +1,39 @@
-# 補完
+# --------
+# zplug設定
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zaw'
+zplug 'zsh-users/zsh-syntax-highlighting', defer:2
+zplug check || zplug install
+
+### cdr の設定 (zplug load 前に書かないと zaw-cdr がスキップされる)
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook is-at-least
+if is-at-least 4.3.10; then
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+fi
+
+zplug load
+
+
+
+# --------
+# basic 設定
+
+## 補完
 autoload -U compinit
 compinit
 
-# promptを設定する
+### promptを設定する
 # $ prompt [prompt名]
 autoload -U promptinit
 promptinit
 
-#promptを独自で変更
+### promptを独自で変更
 PROMPT='%w :%F{green}%c%f [%n] # '
 
 # 色を使用
