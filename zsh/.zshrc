@@ -1,6 +1,4 @@
-# --------
 # zplug設定
-
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -19,6 +17,26 @@ fi
 
 zplug load
 
+# zstyel 補完
+## 補完候補をキャッシュする。
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+setopt no_beep  # 補完候補がないときなどにビープ音を鳴らさない。
+setopt no_nomatch # git show HEAD^とかrake foo[bar]とか使いたい
+setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演算を実行
+
+## 実行したプロセスの消費時間が3秒以上かかったら
+## 自動的に消費時間の統計情報を表示する。
+REPORTTIME=3
+
+
+# エイリアス
+
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
 
 
 # --------
@@ -34,7 +52,11 @@ autoload -U promptinit
 promptinit
 
 ### promptを独自で変更
-PROMPT='%w :%F{green}%c%f [%n] # '
+function toon {
+  echo -n ""
+}
+
+PROMPT='%w :%F{green}%c%f $(toon)[%n]# '
 
 # 色を使用
 autoload -Uz colors
