@@ -1,3 +1,8 @@
+#ailiasの設定
+alias -g g='git'
+alias -g d='docker'
+alias -g d-c='docker-compose'
+
 # zplug設定
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
@@ -104,7 +109,7 @@ setopt prompt_subst
 SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n),a,e]:${reset_color} "
 
 # git
-RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+RPROMPT="%{${fg[white]}%}[%~]%{${reset_color}%}"
 
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -115,3 +120,9 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+
+#PATH
+# rbenvの設定。
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# composer
+
