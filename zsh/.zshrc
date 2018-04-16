@@ -125,4 +125,7 @@ RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 # rbenvの設定。
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # composer
+export PATH=$PATH:$HOME/.composer/vendor/bin
+# node
+export PATH=$PATH:/Users/endu/.nodebrew/current/bin
 
