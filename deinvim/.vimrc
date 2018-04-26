@@ -4,7 +4,7 @@ endif
 
 "dein.vim本体をランタイムパスに追加
 set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
-"必須
+
 if dein#load_state("$HOME/.vim/dein")
   call dein#begin("$HOME/.vim/dein")
 
@@ -26,6 +26,7 @@ call dein#add('bronson/vim-trailing-whitespace')
 " 末尾の全角と半角の空白文字を赤くハイライト
 call dein#add('bronson/vim-trailing-whitespace')
 " コードの自動補間(neocomplete・neosnippet・neosnippet-snippets)
+
 if has('lua')
    "自動補間
    call dein#add('Shougo/neocomplete.vim')
@@ -34,7 +35,6 @@ if has('lua')
     " スニペット集
    call dein#add('Shougo/neosnippet-snippets')
 endif
-
 
 call dein#end()
   call dein#save_state()
@@ -49,6 +49,7 @@ if dein#check_install()
 endif
 
 "molokai
+colorscheme molokai
 let g:molokai_original = 1
 
 " indentLine
@@ -95,8 +96,7 @@ set tabstop=4 "インデントをスペース4つ分に設定
 set smartindent "オートインデント
 set list listchars=tab:>- " 不可視文字を標示
 
-" ###molokai表示設定###
-colorschemjjjjuuuujjue molokai
+" ###color schema###
 set t_Co=256
 "### lightlineの設定
 set laststatus=2
@@ -173,4 +173,3 @@ function! s:CopipeTerm()
         unlet b:copipe_term_save
     endif
 endfunction
-
