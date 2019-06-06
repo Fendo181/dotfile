@@ -129,3 +129,5 @@ export PATH=$PATH:$HOME/.composer/vendor/bin
 # node
 export PATH=$PATH:/Users/endu/.nodebrew/current/bin
 
+#GO PATH
+export GOPATH=$HOME/.go
