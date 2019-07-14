@@ -7,6 +7,7 @@ __EOT__
 
 cp -r .github $1
 cp .commit_template $1
+cp .gitignore $1
 # emoji prefix
 cd $1
 git config commit.template .commit_template
