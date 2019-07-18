@@ -9,6 +9,7 @@ cp -r .github $1
 cp .commit_template $1
 if [ -f $1/.gitignore ]; then
   echo "すでに存在しているので、.gitignoreはコピーしません"
+  echo ".commit_templateを追記して下さい"
 else
   echo ".gitignore"
   cp .gitignore $1
