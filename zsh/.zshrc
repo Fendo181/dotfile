@@ -131,3 +131,8 @@ export PATH=$PATH:$HOME/.nodebrew/current/bin
 
 #GO PATH
 export GOPATH=$HOME/.go
+
+#PHP7.2 PATH
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
+
