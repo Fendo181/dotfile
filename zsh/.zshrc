@@ -127,7 +127,7 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # composer
 export PATH=$PATH:$HOME/.composer/vendor/bin
 # node
-export PATH=$PATH:/Users/endu/.nodebrew/current/bin
+export PATH=$PATH:$HOME/.nodebrew/current/bin
 
 #GO PATH
 export GOPATH=$HOME/.go
