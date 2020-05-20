@@ -22,7 +22,7 @@
         #log graph カスタマイズ
         glog = log --graph --branches --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
         #simple graph ver
-        sglog = log --graph --date=iso --pretty=format:"[%ad] %h %an : %s" 
+        slog = log --graph --date=iso --pretty=format:"[%ad] %h %an : %s" 
 [core]
     editor = vim -c \"set fenc=utf-8\"
 [push]
