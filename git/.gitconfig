@@ -1,8 +1,8 @@
 [color]
         ui = true
-[user]
+user]
         name = Fendo181
-        email = fedno181git@gmail.com
+        email = fendo181git@gmail.com
 [alias]
         a = add
         cm = commit
