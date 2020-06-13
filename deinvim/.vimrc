@@ -8,35 +8,31 @@ set runtimepath+=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
 if dein#load_state("$HOME/.vim/dein")
   call dein#begin("$HOME/.vim/dein")
 
-"Plugins
-call dein#add('Shougo/dein.vim')
-"molokaiのカラーテーマ"
-call dein#add('tomasr/molokai')
-"構文チェックを行う。
-call dein#add('scrooloose/syntastic')
-"()を補間する。
-call dein#add('Townk/vim-autoclose')
-"() 色付け:
-call dein#add('itchyny/lightline.vim')
-"インデントの色付け
-call dein#add('Yggdroot/indentLine')
-" 末尾の全角と半角の空白文字を赤くハイライト
-call dein#add('bronson/vim-trailing-whitespace')
+  "Plugins
+  call dein#add('Shougo/dein.vim')
+  call dein#add('Shougo/deoplete.nvim')
+  "molokaiのカラーテーマ"
+  call dein#add('tomasr/molokai')
+  "構文チェックを行う。
+  call dein#add('scrooloose/syntastic')
+  "()を補間する。
+  call dein#add('Townk/vim-autoclose')
+  "() 色付け:
+  call dein#add('itchyny/lightline.vim')
+  "インデントの色付け
+  call dein#add('Yggdroot/indentLine')
+  " 末尾の全角と半角の空白文字を赤くハイライト
+  call dein#add('bronson/vim-trailing-whitespace')
 
-" 末尾の全角と半角の空白文字を赤くハイライト
-call dein#add('bronson/vim-trailing-whitespace')
-" コードの自動補間(neocomplete・neosnippet・neosnippet-snippets)
+  " 末尾の全角と半角の空白文字を赤くハイライト
+  call dein#add('bronson/vim-trailing-whitespace')
 
-if has('lua')
-   "自動補間
-   call dein#add('Shougo/neocomplete.vim')
-    " スニペットの補完機能
-     call dein#add('Shougo/neosnippet')
-    " スニペット集
-   call dein#add('Shougo/neosnippet-snippets')
-endif
+  if !has('nvim')
+    call dein#add('roxma/nvim-yarp')
+    call dein#add('roxma/vim-hug-neovim-rpc')
+  endif
 
-call dein#end()
+  call dein#end()
   call dein#save_state()
 endif
 
@@ -56,28 +52,6 @@ let g:molokai_original = 1
 set list lcs=tab:\|\
 let g:indentLine_char = 'c'
 let g:indentLine_color_term = 239
-
-" neocomplete.vim
-"----------------------------------------------------------
-" neocomplete・neosnippetの設定
-"----------------------------------------------------------
-" Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplete#enable_smart_case = 1
-" 3文字以上の単語に対して補完を有効にする
-let g:neocomplete#min_keyword_length = 3
-" 区切り文字まで補完する
-let g:neocomplete#enable_auto_delimiter = 1
-" 1文字目の入力から補完のポップアップを表示
-let g:neocomplete#auto_completion_start_length = 1
-" バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
-
-" エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-" タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
 "基本設定
 "
@@ -104,7 +78,6 @@ set laststatus=2
 set ignorecase "大文字/小文字の区別なく検索する
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
-
 
 " #####コマンド設定####
 inoremap <silent> jj <ESC>
