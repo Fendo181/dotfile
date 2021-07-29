@@ -1,7 +1,11 @@
 #ailiasの設定
+
 alias -g g='git'
 alias -g d='docker'
 alias -g d-c='docker-compose'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
 
 # zplug設定
 export ZPLUG_HOME=/usr/local/opt/zplug
@@ -36,17 +40,7 @@ setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演
 REPORTTIME=3
 
 
-# エイリアス
-
-alias '..'='cd ..'
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-
-
-# --------
 # basic 設定
-
 ## 補完
 autoload -U compinit
 compinit
@@ -60,8 +54,8 @@ promptinit
 function toon {
   echo -n ""
 }
-
 PROMPT='%w :%F{green}%c%f $(toon)[%n]# '
+
 
 # 色を使用
 autoload -Uz colors
@@ -120,19 +114,4 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-#PATH
-# rbenvの設定。
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# composer
-export PATH=$PATH:$HOME/.composer/vendor/bin
-# node
-export PATH=$PATH:$HOME/.nodebrew/current/bin
-
-#GO PATH
-export GOPATH=$HOME/.go
-
-#PHP7.2 PATH
-export PATH="/usr/local/opt/php@7.2/bin:$PATH"
-export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
 
