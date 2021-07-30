@@ -1,5 +1,4 @@
 #ailiasの設定
-
 alias -g g='git'
 alias -g d='docker'
 alias -g d-c='docker-compose'
@@ -7,16 +6,18 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
-# zplug設定
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+# zinit設定
+# ref:https://github.com/zdharma/zinit
+source $HOME/.zinit/bin/zinit.zsh
 
-zplug 'zsh-users/zsh-completions'
-zplug 'zsh-users/zaw'
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug check || zplug install
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+zinit load zsh-users/zsh-autosuggestions
+zinit load zsh-users/zsh-completions
+zinit load zsh-users/zaw
+zinit load zsh-users/zsh-syntax-highlighting
 
-### cdr の設定 (zplug load 前に書かないと zaw-cdr がスキップされる)
+### cdr の設定 (zinit load 前に書かないと zaw-cdr がスキップされる)
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook is-at-least
 if is-at-least 4.3.10; then
 add-zsh-hook chpwd chpwd_recent_dirs
@@ -24,7 +25,6 @@ zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 fi
 
-zplug load
 
 # zstyel 補完
 ## 補完候補をキャッシュする。
@@ -39,12 +39,7 @@ setopt prompt_subst  # PROMPT内で変数展開・コマンド置換・算術演
 ## 自動的に消費時間の統計情報を表示する。
 REPORTTIME=3
 
-
-# basic 設定
-## 補完
-autoload -U compinit
-compinit
-
+# 基本設定
 ### promptを設定する
 # $ prompt [prompt名]
 autoload -U promptinit
@@ -55,7 +50,6 @@ function toon {
   echo -n ""
 }
 PROMPT='%w :%F{green}%c%f $(toon)[%n]# '
-
 
 # 色を使用
 autoload -Uz colors
@@ -114,4 +108,3 @@ zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
