@@ -1,7 +1,7 @@
 ### peco
 
 [peco](https://github.com/peco/peco)はシンプルなフィルタリングツールです。
-同様のフィルタリングツールに `grep`がありますがpecoは思いどおりに入力して現在の結果を確認できるため、ログのフィルタリング、統計の処理、ファイルの検索などに最適なツールになります。
+同様のフィルタリングツールに `grep`がありますがpecoは思いどおりに入力して現在の結果を確認できるため、ログのフィルタリング、統計の処理、ファイルの検索などに最適なツールになります。  
 pecoはGoで制作されています。
 
 >peco can be a great tool to filter stuff like logs, process stats, find files, because unlike grep, you can type as you think and look through the current results.
@@ -15,13 +15,14 @@ brew install peco
 
 ### 使い方
 
-基本的にはgrep同様に`|`でつなげてあげます。
+基本的にはgrep同様に`|`で繋げます。
+以下のコマンドを実行するとディレクトリーを見やすくフィルタリングできます。
 
 ```sh
 ls | peco
 ```
 
-移動先のディレクターを表示してくれます。
+それ以外にも移動先のディレクターを簡単に表示してくれる事もできます。
 
 ```sh
 cd "$(find . -type d | peco)" 
