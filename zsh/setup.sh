@@ -1,5 +1,4 @@
 brew install zsh
-brew install zplug
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 cp .zshrc ~/
-chmod 755 /usr/local/share/zsh
-chmod 755 /usr/local/share/zsh/site-functions
+source ~/.zshrc
