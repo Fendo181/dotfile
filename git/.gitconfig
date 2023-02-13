@@ -10,6 +10,7 @@
         st = status
         ss = status -s
         sh = show
+        sw = switch
         fe = fetch
         me = merge
         p  = push
