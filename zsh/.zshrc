@@ -117,20 +117,6 @@ zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*' list-separator '-->'
 zstyle ':completion:*:manuals' separate-sections true
 
-
-# pecoを使ってディレクトリ移動を行う
-## ^xで実行する
-function peco-cd-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
-}
-zle -N peco-cd-src
-bindkey '^x' peco-cd-src
-
 # peco
 ## ctrl + x でディレクトリ移動を行う
 function peco-cd-src () {
@@ -165,8 +151,6 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 ## go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
-## Ruby
 
 ## pyenv
 export PYENV_ROOT="$HOME/.pyenv"
