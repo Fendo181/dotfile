@@ -22,6 +22,7 @@ autoload -Uz _zinit
 # zinitのプラグインの読み込み
 zinit load zsh-users/zsh-autosuggestions
 zinit load zsh-users/zsh-completions
+zinit load zsh-users/zsh-syntax-highlighting
 
 # prompt設定
 ## Load the pure theme, with zsh-async library that's bundled with it.
