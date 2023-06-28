@@ -6,7 +6,6 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
-
 # zinitの設定
 ## https://github.com/zdharma-continuum/zinit
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -140,14 +139,13 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-
 # PATH setting
 ## brew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-## nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+## nodenv
+eval "$(nodenv init -)"
 
 ## go
 export GOPATH=$HOME/go
