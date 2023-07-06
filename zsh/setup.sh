@@ -1,5 +1,5 @@
 brew install zsh
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+sh -c "$(curl -fsSL https://git.io/zinit-install)
 zinit self-update
 cp .zshrc ~/
 source ~/.zshrc
