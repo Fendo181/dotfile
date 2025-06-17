@@ -1,10 +1,12 @@
 # ailiasの設定
 alias -g g='git'
 alias -g d='docker'
-alias -g d-c='docker-compose'
+alias -g d-c='docker compose'
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
+alias -g cl='claude'
+
 
 # zinitの設定
 ## https://github.com/zdharma-continuum/zinit
