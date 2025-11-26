@@ -90,8 +90,6 @@ setopt correct
 ## もしかして時のプロンプト指定
 SPROMPT="%{$fg[red]%}%{$suggest%}(*'~'%)? < もしかして %B%r%b %{$fg[red]%}かな? [そう!(y), 違う!(n)]:${reset_color} "
 
-## PCRE 互換の正規表現を使う
-setopt re_match_pcre
 ## プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 
