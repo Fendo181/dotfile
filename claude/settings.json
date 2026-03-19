@@ -41,9 +41,9 @@
       "mcp__github__list_*",
       "mcp__github__search_*",
       "mcp__chrome-devtools__*",
-      "mcp__playwright__*",
+      "mcp__playwright__*"
     ],
-    "defaultMode": "default",
+    "defaultMode": "default"
   },
   "hooks": {
     "PermissionRequest": [
